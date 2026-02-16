@@ -1,0 +1,47 @@
+# Hoe Levels
+Hoe-Levels:
+  '1':
+    xp-needed: 5000
+  '2':
+    xp-needed: 10000
+  '3':
+    xp-needed: 15000
+  '4':
+    xp-needed: 20000
+  '5':
+    xp-needed: 25000
+  '6':
+    xp-needed: 30000
+  '7':
+    xp-needed: 35000
+  '8':
+    xp-needed: 40000
+  '9':
+    xp-needed: 45000
+  '10':
+    xp-needed: 50000
+  '11':
+    xp-needed: 55000
+  '12':
+    xp-needed: 60000
+  '13':
+    xp-needed: 65000
+  '14':
+    xp-needed: 70000
+  '15':
+    xp-needed: 75000
+# Auto Levels - Calculated like this:  starting-xp + starting-xp * (level * increment-xp)
+Auto-Levels:
+  enabled: true
+  max-level: 15
+  starting-xp: 5000
+  increment-xp: 1.0
+Level-Rewards:
+  '3':
+    rewards:
+      - '[command]essence give %player% 1000'
+      - '[message]&e&l[!] &fYou have reached Hoe &eLevel 3 &fand received &e1000 Essence!'
+Repeating-Rewards:
+  '30':
+    rewards:
+      - '[command]essence give {player} 10000'

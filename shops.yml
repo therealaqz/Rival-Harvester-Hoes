@@ -1,0 +1,123 @@
+# Information About the Main Menu
+#  main:
+#    options:
+#      size: 45
+#      title: "&8Example Menu"
+#      default: true - If its the first menu that opens when you type /essence shop
+#    items:
+#      '1': // Can be anything but cant repeat
+#        material: 'STONE' // Material of the item shown in GUI
+#        amount: 1 // Amount of Item in the GUI
+#        name: "&bExample Name" // Name of the item in the GUI
+#        lore:          //Lore of the item in the GUI
+#          - "&7Example Lore"
+#        slot: 5       // What Slot will the item Appear in
+#        page: examplepage // When the item is clicked it will open the page defined Mostly used for Main Menu
+pages:
+  main:
+    options:
+      size: 27
+      title: '&e&nServerName&r &8» &fEssence Shop'
+      default: true
+      filler:
+        material: BLACK_STAINED_GLASS_PANE
+    items:
+      '0':
+        base64:
+          value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzMxNTk3MzExMGQ1ODNkZjQ3YWYwYThhZWE1ZWFjOTMxYTg2YWE2MmUzY2EwODc4YTk2ZGE0NGQ2M2RiZjgifX19
+          use: true
+        material: MAGMA_CREAM
+        amount: 1
+        name: '&6&l[!] &e&lESSENCE'
+        lore:
+          - '&8ServerName'
+          - '&r'
+          - '&7&o(( You can get Essence by harvesting'
+          - '&7&ocrops and use Essence to purchase items ))'
+          - '&r'
+          - ' &e&l| &fEssences: &6❋ &e{essence}'
+          - '&r'
+        slot: 10
+      '1':
+        material: SPAWNER
+        amount: 1
+        name: '&3&l[!] &b&lSilverfish Spawner'
+        lore:
+          - '&8Essence Shop'
+          - ''
+          - ' &e&l| &fPrice: &e100k Essence'
+          - ''
+          - '&7&o(( Click here to purchase ))'
+        commands:
+          use: true
+          commands:
+            - ws give {player} spawner Silverfish 1
+        price: 100000
+        slot: 12
+      '2':
+        material: prismarine_shard
+        amount: 1
+        name: '&bCrystal | &lAutoFarmer'
+        lore:
+          - '&8Essence Shop'
+          - ''
+          - ' &e&l| &fPrice: &e500k Essence'
+          - ''
+          - '&7&o(( Click here to purchase ))'
+        commands:
+          use: true
+          commands:
+            - hoe givecrystal {player} AutoFarmer 100 100 100
+        price: 500000
+        slot: 13
+      '3':
+        material: emerald
+        amount: 1
+        name: '&2&l[!] &a&lLevel Upgrade'
+        lore:
+          - '&8Essence Shop'
+          - ''
+          - ' &e&l| &fPrice: &e250k Essence'
+          - ''
+          - '&7&o(( Click here to purchase ))'
+        commands:
+          use: true
+          commands:
+            - hoe givelevel {player} 1
+        price: 250000
+        slot: 14
+      '4':
+        material: STONE
+        base64:
+          value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGQ0ZWY3OTM4ZGZkYzg3Yzk4OWNhNWQ5MjMxZTIzZDFlMzY4ZDIxZjgxMDBmODI3MzE2ZDcwZTU0MWY0ZDMxNSJ9fX0=
+          use: true
+        amount: 1
+        name: '&e&lBarn &6&lAbility'
+        lore:
+          - '&8Essence Shop'
+          - ''
+          - ' &e&l| &fPrice: &e50k Essence'
+          - ''
+          - '&7&o(( Click here to purchase ))'
+        commands:
+          use: true
+          commands:
+            - hoe giveability {player} Barn 1
+        price: 50000
+        slot: 15
+      '5':
+        material: enchanted_book
+        amount: 1
+        name: '&x&9&8&f&4&f&cXP Booster &8(&7🕮&8) &8» &f10 Level(s)'
+        lore:
+          - '&8Essence Shop'
+          - ''
+          - ' &e&l| &fPrice: &e75k Essence'
+          - ''
+          - '&7&o(( Click here to purchase ))'
+        commands:
+          use: true
+          commands:
+            - hoe giveenchant {player} XPBooster 10
+        price: 75000
+        slot: 16

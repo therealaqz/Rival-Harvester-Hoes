@@ -1,0 +1,1363 @@
+#####################################################################################################################
+#  ____  _____     ___    _       _   _    _    ______     _______ ____ _____ _____ ____    _   _  ___  _____ ____  #
+# |  _ \|_ _\ \   / / \  | |     | | | |  / \  |  _ \ \   / | ____/ ___|_   _| ____|  _ \  | | | |/ _ \| ____/ ___| #
+# | |_) || | \ \ / / _ \ | |     | |_| | / _ \ | |_) \ \ / /|  _| \___ \ | | |  _| | |_) | | |_| | | | |  _| \___ \ #
+# |  _ < | |  \ V / ___ \| |___  |  _  |/ ___ \|  _ < \ V / | |___ ___) || | | |___|  _ <  |  _  | |_| | |___ ___) |#
+# |_| \_|___|  \_/_/   \_|_____| |_| |_/_/   \_|_| \_\ \_/  |_____|____/ |_| |_____|_| \_\ |_| |_|\___/|_____|____/ #
+#                                                                                                                   #
+#####################################################################################################################
+Database:
+  # SQLite or MySQL
+  database-type: SQLite
+  mysql:
+    host: localhost
+    port: 3306
+    database: dbName
+    username: dbUser
+    password: dbPassword
+Custom-Commands:
+  enabled: false
+  crop-chance: false
+  crops:
+    WHEAT:
+      chance: 20
+      commands:
+        '1':
+          commands:
+          - bc give %player% vote 1
+          chance: 100
+          regions:
+          - region1
+        '2':
+          commands:
+          - bc give %player% vote 2
+          chance: 100
+#https://docs.rivaldev.xyz/plugins/rivalharvesterhoes/custom-drops
+Custom-Drops:
+  enabled: false
+  chance-drops: false
+  crops:
+    SUGAR_CANE:
+      '1':
+        material: SUGAR_CANE
+        sell-price: 6.5
+      '2':
+        name: '&a&lEnchanted Sugar Cane'
+        material: SUGAR_CANE
+        glow: true
+        level-requirement: 5
+        sell-price: 10
+Main:
+  # Time is in Ticks: 1 second = 20 ticks
+  Money-Giver:
+    time: 100
+  Eco-Giver:
+    time: 100
+  #Keep Hoe after dying
+  keep-on-death: true
+  # Prevents player from using the hoe if he is not the owner
+  perplayerhoes: true
+  # Disables player from upgrading hoe if he is not the owner
+  perplayerhoes-upgrades: true
+  #Add plugin names you want to get notifed when a block is broken
+  notified-plugins:
+  - AuraSkills
+  #Integrates any claiming plugin for protection
+  claiming-plugins: []
+  # Replant crops automatically, if Replenish enchant is enabled this will be ignored
+  replant-crops: true
+  replant-world-blacklist: []
+  give-seeds: true
+  straight-to-inventory: true
+  drop-items-if-full-inventory: true
+  without-hoe-floor-drops: false
+  mcmmo:
+    exp-per-crop: 20
+  aura-skills:
+    custom-drops: false
+    level-requirements: false
+    wheat: 2.0
+    potato: 2.5
+    beetroot: 2.5
+    carrot: 2.7
+    cocoabean: 3.0
+    nether-wart: 3.0
+    pumpkin: 3.4
+    melon: 3.4
+    sugar-cane: 1.7
+    bamboo: 2
+  ultimate-skills:
+    wheat: 2.0
+    potato: 2.5
+    beetroot: 2.5
+    carrot: 2.7
+    cocoabean: 3.0
+    nether-wart: 3.0
+    pumpkin: 3.4
+    melon: 3.4
+    sugar-cane: 1.7
+    bamboo: 2
+  eco-skills:
+    wheat: 2.0
+    potato: 2.5
+    beetroot: 2.5
+    carrot: 2.7
+    cocoabean: 3.0
+    nether-wart: 3.0
+    pumpkin: 3.4
+    melon: 3.4
+    sugar-cane: 1.7
+    bamboo: 2
+  #Stops enchants from being applied to hoe & enchants activating
+  advanced-enchantments-hook: true
+  optimalskills-hook:
+    enabled: false
+    skill-name: Farming
+    custom-drops: true
+    crop-levels: false
+  cyberlevels-hook:
+    enabled: false
+    sync-levels: false
+    xp-boosts: false
+  alonsolevels-hook:
+    sync-levels: false
+  #Prevent from breaking player placed melons/pumpkins with the hoe
+  ignore-player-placed: false
+  # If set to true, it uses crop prices from ShopGUIPlus, if a Crop is missing it defaults to config price
+  shopguiplus-hook: true
+  # ShopGUIPlus hook must be enabled for this to work
+  shopguiplus-multipliers: true
+  #Get Crop prices from EconomyShopGUI
+  economyshopgui-hook: true
+  #Essence & Money Booster support, Restart after changing value
+  superboosters-hook:
+    money: false
+    essence: false
+    leveling-xp:
+      enabled: false
+      booster-name: HoeLevelXP
+      boost-multi: 2.0
+    exp:
+      enabled: false
+      booster-name: Experience
+      boost-multi: 2.0
+  #AdvancedArmor Enchant proc, Keyfinder proc & Spawner proc, CUSTOM, CUSTOM_2, CUSTOM_3, MONEY, ESSENCE
+  advancedarmor-hook:
+    enabled: true
+    money: false
+    essence: false
+  #WorldGuard Hook, stops players from breaking crops in protected regions
+  worldguard-hook: true
+  anti-printerfarm-cane:
+    enabled: true
+    message:
+      value: '&4&l[!] &cYou can''t place sugarcane on top of sugarcane'
+      enabled: true
+  anti-printerfarm-bamboo:
+    enabled: true
+    message:
+      value: '&4&l[!] &cYou can''t place bamboo on top of bamboo'
+      enabled: true
+  #Stop players from auto farming in Minecarts
+  minecart-farming-fix:
+    enabled: true
+  player-commands:
+    enabled: false
+    delay: 60
+    SHIFT_RIGHT_CLICK: sell
+  #Stops players from farming when there's dispensers near crops
+  dispenser-block:
+    enabled: true
+    toggled-on: '&2&l[!] &aDispenser block has been enabled. Crops near dispensers
+      won''t be able to get destroyed.'
+    toggled-off: '&4&l[!] &cDispenser block has been disabled. Crops near dispensers
+      will be able to get destroyed.'
+  # Give players a hoe on first join
+  on-join-hoe:
+    enabled: true
+    silent: false
+    enchants: speed:1,haste:1,keyfinder:5,spawnerfinder:5
+    slot:
+      enabled: false
+      number: 0
+  # Filler used in all GUI's
+  filler:
+    material: BLACK_STAINED_GLASS_PANE
+Farming-Zones:
+  enabled: false
+  player-only: false
+  global: false
+  load-chunks: false
+  allow-without-hoe: false
+  player-only-replace-air: true
+  regions:
+  - farmingzone
+  regen-time: 20
+  particles:
+    enabled: true
+    particle: VILLAGER_HAPPY
+# Sounds
+Sounds:
+  use-sounds: true
+  main-menu-open: ORB_PICKUP;1.0;1.0
+  enchant-purchase: LEVEL_UP;1.0;1.0
+  enchant-disenchant: ITEM_BREAK;1.0;1.0
+  enchant-maxlevel: ANVIL_LAND;1.0;1.0
+  captcha-fail: ANVIL_LAND;1.0;1.0
+  captcha-success: LEVEL_UP;1.0;1.0
+  autosell-message: LEVEL_UP;1.0;1.0
+  hoe-levelup: LEVEL_UP;1.0;1.0
+  hoe-prestige: LEVEL_UP;1.0;1.0
+  hoe-levelup-max: WITHER_SHOOT;1.0;1.0
+  crop-levels-requirement: ANVIL_LAND;1.0;1.0
+  enchant-toggle-on: LEVEL_UP;1.0;1.0
+  enchant-toggle-off: WITHER_SHOOT;1.0;1.0
+  enchant-toggle-noenchant: WITHER_SHOOT;1.0;1.0
+  messages-toggle-on: LEVEL_UP;1.0;1.0
+  messages-toggle-off: WITHER_SHOOT;1.0;1.0
+  autoactivate-toggle-on: LEVEL_UP;1.0;1.0
+  autoactivate-toggle-off: WITHER_SHOOT;1.0;1.0
+# Main Menu That opens when Right Clicked with Hoe
+MainMenu:
+  name: '          &e&l&nHoe Main Menu'
+  size: 36
+  straight-to-upgrade-menu: false
+  hoe-preview-slot: 10
+  hoe-preview-enabled: true
+  settings-enabled: true
+  disenchanter-enabled: true
+  disenchanter-mainmenu-enabled: false
+  croptop-mainmenu: true
+  essencetop-mainmenu: true
+  upgrade-mainmenu: true
+  prices-mainmenu: true
+  stats-enabled: true
+  crop-levels-enabled: true
+  stats-slot: 25
+  upgrades-slot: 12
+  disenchanter-slot: 20
+  settings-slot: 16
+  croptop-slot: 15
+  essencetop-slot: 13
+  prices-slot: 14
+  crop-levels-slot: 19
+# Settings for Crop Prices and Essence Amounts
+Settings:
+  SugarCane:
+    money: 6.5
+    essence: 3
+    xp: 5
+  Bamboo:
+    money: 6.5
+    essence: 3
+  Potato:
+    money: 2
+    essence: 3
+    default-drop: 2-4
+    xp: 3
+  Melon:
+    money: 1.5
+    essence: 3
+    default-drop: 3-7
+  Pumpkin:
+    money: 2.25
+    essence: 3
+    default-drop: 1
+  Wheat:
+    money: 2
+    essence: 3
+    default-drop: 2-4
+  CocoBean:
+    money: 2
+    essence: 3
+    default-drop: 3
+  NetherWart:
+    money: 2.25
+    essence: 3
+    default-drop: 2-4
+  Carrot:
+    money: 2
+    essence: 3
+    default-drop: 1-4
+  Beetroot:
+    money: 2
+    essence: 3
+    default-drop: 1
+  Pitcher:
+    money: 2
+    essence: 3
+    default-drop: 1
+  # Crop Prices GUI Settings
+  GUI:
+    Bamboo:
+      name: '&x&6&B&8&E&2&3&lBAMBOO'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 22
+      enabled: true
+    SugarCane:
+      name: '&x&9&A&C&D&3&2&lSUGAR CANE'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 10
+      enabled: true
+    Potato:
+      name: '&x&D&2&B&4&8&C&lPOTATO'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 11
+      enabled: true
+    Melon:
+      name: '&x&9&8&F&B&9&8&lMELON'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 12
+      enabled: true
+    Pumpkin:
+      name: '&x&F&F&7&5&1&8&lPUMPKIN'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 21
+      enabled: true
+    Wheat:
+      name: '&x&f&c&b&9&7&c&lWHEAT'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 14
+      enabled: true
+    CocoBean:
+      name: '&x&8&B&4&5&1&3&lCOCOA BEANS'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 15
+      enabled: true
+    NetherWart:
+      name: '&x&6&0&0&0&0&0&lNETHER WART'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 16
+      enabled: true
+    Carrot:
+      name: '&x&F&F&A&5&0&0&lCARROT'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 13
+      enabled: true
+    Beetroot:
+      name: '&x&8&B&0&0&0&0&lBEETROOT'
+      lore:
+      - '&8ServerName'
+      - ''
+      - ' &8| &fMoney: &2$ &a{money}'
+      - ' &8| &fEssence: &6❋ &e{essence}'
+      slot: 23
+      enabled: true
+GUI:
+  back-enchanter:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWRmNWMyZjg5M2JkM2Y4OWNhNDA3MDNkZWQzZTQyZGQwZmJkYmE2ZjY3NjhjODc4OWFmZGZmMWZhNzhiZjYifX19
+    name: '&x&F&F&1&7&4&1⬅ Go Back'
+    lore:
+    - '&r'
+    - '&7&o(( Click to go back to main menu ))'
+    enabled: true
+    slot: 45
+  back-disenchanter:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWRmNWMyZjg5M2JkM2Y4OWNhNDA3MDNkZWQzZTQyZGQwZmJkYmE2ZjY3NjhjODc4OWFmZGZmMWZhNzhiZjYifX19
+    name: '&x&F&F&1&7&4&1⬅ Go Back'
+    lore:
+    - '&r'
+    - '&7&o(( Click to go back to enchanter))'
+    enabled: true
+    slot: 45
+  already-have:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==
+    name: '&x&F&F&5&7&5&7✘ ¡You already have this enchant!'
+    lore:
+    - '&r'
+    - '&7&o(( Your hoe already has this enchant ))'
+    message: '&x&F&F&5&7&5&7✘ ¡You already have this enchant!'
+  purchased:
+    material: EMERALD_BLOCK
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODZhZGRiZDVkZWRhZDQwOTk5NDczYmU0YTdmNDhmNjIzNmE3OWEwZGNlOTcxYjVkYmQ3MzcyMDE0YWUzOTRkIn19fQ==
+    name: '&x&B&6&9&C&F&FPurchased Enchant'
+    lore:
+    - '&r'
+    - '&7&o(( You have purchased this'
+    - '&7&o enchant for your hoe ))'
+    - '&r'
+    message: '&x&C&0&F&F&9&9You have purchased the {enchant} enchant'
+  no-prestige:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==
+    name: '&x&F&F&3&1&3&1✘ Hoe Prestige too low'
+    lore:
+    - '&r'
+    - '&7&o(( Your hoe prestige is too low ))'
+    message: '&x&F&F&3&1&3&1✘ Your hoe prestige is too low.'
+  no-level:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==
+    name: '&x&F&F&3&1&3&1✘ Hoe Level too low'
+    lore:
+    - '&r'
+    - '&7&o(( Your hoe level is too low ))'
+    message: '&x&F&F&3&1&3&1✘ Your hoe level is too low.'
+    leveled-up: '&x&C&0&F&F&9&9You have leveled up your hoe to level {level}.'
+  no-essence:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==
+    name: '&x&F&F&3&1&3&1✘ Not enough Essence'
+    lore:
+    - '&r'
+    - '&7&o(( You dont have enough essence ))'
+    message: '&x&F&F&3&1&3&1✘ You don''t have enough essence for this enchant.'
+  max-level:
+    material: BARRIER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2VkMWFiYTczZjYzOWY0YmM0MmJkNDgxOTZjNzE1MTk3YmUyNzEyYzNiOTYyYzk3ZWJmOWU5ZWQ4ZWZhMDI1In19fQ==
+    name: '&x&F&F&3&1&3&1✘ &lMAX LEVEL'
+    lore:
+    - '&r'
+    - '&7&o(( This enchant is at its Max Level ))'
+    message: '&x&F&F&3&1&3&1✘ This enchant is at its max level.'
+    message-exceeded: '&x&F&F&3&1&3&1✘ This purchase would exceed the max level for
+      this enchant.'
+  upgrades-mainmenu:
+    material: PAINTING
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzUzNjJmOTBmZjI5Y2NkNDBmNDIzNWEwNWRkOTFkZjA5MWNmNDNmM2EyZjcxNDE0ZGZiYmNhNmU1ZDM2MzRkOSJ9fX0=
+    name: '&e&lUpgrades'
+    lore:
+    - '&7'
+    - '&7&o(( Click to view all upgrades ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  disenchanter-mainmenu:
+    material: PAINTING
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzUzNjJmOTBmZjI5Y2NkNDBmNDIzNWEwNWRkOTFkZjA5MWNmNDNmM2EyZjcxNDE0ZGZiYmNhNmU1ZDM2MzRkOSJ9fX0=
+    gui-name: '&e&nMenu&r &8» &fDisenchanter'
+    gui-size: 54
+    name: '&e&lDisenchanter'
+    lore:
+    - '&7'
+    - '&7&o(( Click to disenchant your enchants. ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  settings-enchantmenu:
+    material: QUARTZ
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGUxNTBhYjdjMDE4NDZmNDgwODk3ZmJkMzVmMDUyNWNhZWI1MmFhNjI0Zjk2NzAwOTVmMzk2MTA1ODkzZGFjYiJ9fX0=
+    name: '&e&lSettings'
+    lore:
+    - '&7'
+    - '&7&o(( Click to enable/disable features. ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  settings-mainmenu:
+    material: QUARTZ
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGUxNTBhYjdjMDE4NDZmNDgwODk3ZmJkMzVmMDUyNWNhZWI1MmFhNjI0Zjk2NzAwOTVmMzk2MTA1ODkzZGFjYiJ9fX0=
+    name: '&e&lSettings'
+    lore:
+    - '&7'
+    - '&7&o(( Click to enable/disable features. ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  croptop-mainmenu:
+    material: SUGAR_CANE
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY3MGJhNmNiY2Q2MGNjYTI5MDZiMGM0YWJiNzE2ODIwODUxZDVjMjhhNDJlYmY5NTQ3YTE1ZTc2MTE3NjhkMSJ9fX0=
+    name: '&e&lCrop Leaderboards'
+    lore:
+    - '&7'
+    - '&7&o(( Click to view crops leaderboard. ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  essencetop-mainmenu:
+    material: MAGMA_CREAM
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjgwOWQyZTY5NjEwZjFlNmI3NWZlMGQ0NTk4ZTQ0MWU1NjAzMjVkMmQ1MmQ5N2NmNjY4NTljNDRmYTNkOGE3OSJ9fX0=
+    name: '&e&lEssence Top'
+    lore:
+    - '&7'
+    - '&7&o(( Click to view essence top leaderboard. ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  croplevels-mainmenu:
+    material: DIAMOND_HOE
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNlNDU4MzFjMWVhODE3Zjc0NzdiY2FlYmZhM2QyZWUzYTkzNmVlOGVhMmI4YmRlMjkwMDZiN2U5YmRmNTgifX19
+    name: '&e&lCrop Levels'
+    lore:
+    - '&7'
+    - '&7&o(( Click to view all the crop levels ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  prices-mainmenu:
+    material: PAPER
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGU3NGQ2NDcyZjgxMWVlN2U1ZTgwNWVhOTNkN2I0Yzc2MWM2NmE2NGU1OTM3MDJmYzgwNzNkYjM1N2YwNDY0ZCJ9fX0=
+    gui-name: '&e&nMenu&r &8» &fCrop Prices'
+    name: '&e&lCrop Prices'
+    lore:
+    - '&7'
+    - '&7&o(( Click to view all the crop prices ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  # /harvesters GUI - Shows players currently farming
+  harvesters-mainmenu:
+    gui-name: '&e&nMenu&r &8» &fHarvesters'
+    item:
+      lore:
+      - '&8| &fMoney: &2$ &a{money}'
+      - '&8| &fEssence: &6❋ &e{essence}'
+      - ''
+      - '&8| &x&6&B&8&E&2&3🍁 Bamboo: &f{bamboo}'
+      - '&8| &x&9&A&C&D&3&2🍁 Sugarcane: &f{sugarcane}'
+      - '&8| &x&D&2&B&4&8&C🍁 Potato: &f{potato}'
+      - '&8| &x&9&8&F&B&9&8🍁 Melon: &f{melon}'
+      - '&8| &x&F&F&7&5&1&8🍁 Pumpkin: &f{pumpkin}'
+      - '&8| &x&f&c&b&9&7&c🍁 Wheat: &f{wheat}'
+      - '&8| &x&8&B&4&5&1&3🍁 CocoaBean: &f{cocoabean}'
+      - '&8| &x&6&0&0&0&0&0🍁 NetherWart: &f{netherwart}'
+      - '&8| &x&F&F&A&5&0&0🍁 Carrot: &f{carrot}'
+      - '&8| &x&8&B&0&0&0&0🍁 Beetroot: &f{beetroot}'
+      - ''
+      - '&8| &eTotal Crops: &f{global}'
+      - ''
+      - '&8| &bBlocks Per Second: &f{bps}'
+      - ''
+      - '&7&o(( Click to teleport to player ))'
+    color: '&f&l'
+    pages:
+      name: '&f&lPAGES'
+      base64:
+        enabled: false
+        value: ''
+      material: BOOK
+    next-page:
+      material: EMERALD
+      base64:
+        enabled: false
+        value: ''
+      name: '&a&lNEXT PAGE -->'
+      lore:
+      - '&7&o(( Click to go to the next page ))'
+    return-page:
+      material: REDSTONE
+      base64:
+        enabled: false
+        value: ''
+      name: '&c&l<-- GO BACK'
+      lore:
+      - '&7&o(( Click to go back ))'
+  # Hoe Settings Menu
+  settings-menu:
+    name: '&e&nMenu&r &8» &fSettings'
+    size: 27
+    autosell-message-chat-enabled:
+      slot: 11
+      material: SIGN
+      base64:
+        enabled: true
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY3NWQxYjc4NWQxOGQ0N2IzZWE4ZjBhN2UwZmQ0YTFmYWU5ZTdkMzIzY2YzYjEzOGM4Yzc4Y2ZlMjRlZTU5In19fQ==
+      name: '&fOption &8▸ &e&lAutoSell Messages'
+      lore:
+      - '&8ServerName'
+      - ''
+      - '&7&o(( Click to toggle'
+      - '&7&oAutoSell messages. ))'
+      - ''
+      - ' &8★ &fStatus: &aEnabled ✔'
+      - ''
+      - '&6◆ &e¡Click to disable!'
+    autosell-message-chat-disabled:
+      material: SIGN
+      base64:
+        enabled: true
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY3NWQxYjc4NWQxOGQ0N2IzZWE4ZjBhN2UwZmQ0YTFmYWU5ZTdkMzIzY2YzYjEzOGM4Yzc4Y2ZlMjRlZTU5In19fQ==
+      name: '&fOption &8▸ &e&lAutoSell Messages'
+      lore:
+      - '&8ServerName'
+      - ''
+      - '&7&o(( Click to toggle'
+      - '&7&oAutoSell messages. ))'
+      - ''
+      - ' &8☆ &fStatus: &cDisabled ✘'
+      - ''
+      - '&6◆ &e¡Click to enable!'
+    actionbar-messages-enabled:
+      slot: 13
+      material: BLAZE_ROD
+      base64:
+        enabled: true
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzdlYTY3Njg2OTcxOGIxMWU4YTNhMTc0OTdjYzYzOGU2YThkYzFkMzFlNTM4MmZmZTNjZjk0YWFlNzE3YWRhZiJ9fX0=
+      name: '&fOption &8▸ &e&lActionBar Messages'
+      lore:
+      - '&8ServerName'
+      - ''
+      - '&7&o(( Click to toggle'
+      - '&7&oActionBar messages. ))'
+      - ''
+      - ' &8★ &fStatus: &aEnabled ✔'
+      - ''
+      - '&6◆ &e¡Click to disable!'
+    actionbar-messages-disabled:
+      material: BLAZE_ROD
+      base64:
+        enabled: true
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzdlYTY3Njg2OTcxOGIxMWU4YTNhMTc0OTdjYzYzOGU2YThkYzFkMzFlNTM4MmZmZTNjZjk0YWFlNzE3YWRhZiJ9fX0=
+      name: '&fOption &8▸ &e&lActionBar Messages'
+      lore:
+      - '&8ServerName'
+      - ''
+      - '&7&o(( Click to toggle'
+      - '&7&oActionBar messages. ))'
+      - ''
+      - ' &8☆ &fStatus: &cDisabled ✘'
+      - ''
+      - '&6◆ &e¡Click to enable!'
+    title-messages-enabled:
+      slot: 15
+      material: BLAZE_ROD
+      base64:
+        enabled: true
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjgwOGQ5MjEzYWY5ZTIyMzVhMDgyOGMyOWZiODA2MGVkMGUzYTdhZjI5ZGJkNWI1YTkyYWI5NjRjZjhhNTRlYSJ9fX0=
+      name: '&fOption &8▸ &e&lTitle Messages'
+      lore:
+      - '&8ServerName'
+      - ''
+      - '&7&o(( Click to toggle'
+      - '&7&oTitle messages. ))'
+      - ''
+      - ' &8★ &fStatus: &aEnabled ✔'
+      - ''
+      - '&6◆ &e¡Click to disable!'
+    title-messages-disabled:
+      material: BLAZE_ROD
+      base64:
+        enabled: true
+        value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjgwOGQ5MjEzYWY5ZTIyMzVhMDgyOGMyOWZiODA2MGVkMGUzYTdhZjI5ZGJkNWI1YTkyYWI5NjRjZjhhNTRlYSJ9fX0=
+      name: '&fOption &8▸ &e&lTitle Messages'
+      lore:
+      - '&8ServerName'
+      - ''
+      - '&7&o(( Click to toggle'
+      - '&7&oTitle messages. ))'
+      - ''
+      - ' &8☆ &fStatus: &cDisabled ✘'
+      - ''
+      - '&6◆ &e¡Click to enable!'
+  stats-mainmenu:
+    material: NETHER_STAR
+    base64:
+      enabled: true
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTQ4MGQ1N2IwZDFkNDMyZTA3NDg3OGM2YWVjNWY0NWEyY2U5OGQ5YzQ4MWZiOGNjODM4MmNmZjE3MWY4MzY5OSJ9fX0=
+    name: '&6☆ &e&lPersonal Stats'
+    lore:
+    - ''
+    - '&e&lHoe Stats'
+    - ' &8| &fEssence Harvested: &6❋ &e{essenceharvesed}'
+    - ' &8| &fHoe Owner: &e{owner}'
+    - ''
+    - '&e&lHoe Crop Stats'
+    - ' &8| &x&6&B&8&E&2&3Bamboo: &f{bamboo}'
+    - ' &8| &x&9&A&C&D&3&2Sugarcane: &f{sugarcane}'
+    - ' &8| &x&D&2&B&4&8&CPotato: &f{potato}'
+    - ' &8| &x&9&8&F&B&9&8Melon: &f{melons}'
+    - ' &8| &x&F&F&7&5&1&8Pumpkin: &f{pumpkins}'
+    - ' &8| &x&f&c&b&9&7&cWheat: &f{wheat}'
+    - ' &8| &x&8&B&4&5&1&3CocoaBean: &f{cocobeans}'
+    - ' &8| &x&6&0&0&0&0&0NetherWart: &f{netherwarts}'
+    - ' &8| &x&F&F&A&5&0&0Carrot: &f{carrots}'
+    - ' &8| &x&8&B&0&0&0&0Beetroot: &f{beetroot}'
+    - ''
+    - '&e&lYour Stats'
+    - ' &8| &fCurrent Essence: &6❋ &e{currentessence}'
+Switch-Tool:
+  enabled: true
+  material: DIAMOND_AXE
+  name: '&6☆ &eAxe of {owner} &8{mode}'
+# Harvester Hoe Item Settings
+Hoe-Settings:
+  name: '&6☆ &eHoe of {owner} &8{mode}'
+  # Possible types: WOODEN, STONE, IRON, GOLDEN, DIAMOND, 1.16+ NETHERITE
+  type: DIAMOND
+  autosell: '&8(&fAutoSell&8)'
+  collect: '&8(&fCollect&8)'
+  lore:
+  - ''
+  - '&7&o(( Destroy crops and earn essence'
+  - '&7&oto upgrade your harvester hoe/axe'
+  - '&7&o&lShift + Right-Click&r &7&oto switch mode ))'
+  - ''
+  - '&e&lSTATS'
+  - ' &e&l| &fOwner: &e{owner}'
+  - ' &e&l| &fLevel: &e{level} ✮'
+  - ' &e&l| &fPrestige: &e{prestige} ✧'
+  - ' &e&l| &fProgress: &8[{progress}&8] &7({percentage}%)'
+  - ' &e&l| &fEssence Harvested: &e{essenceharvested}'
+  - ''
+  - '&6&lENCHANTS &8(&7{amount}/19&8)'
+  - ' &6&l| %enchant-AutoSell% &f{current-level}&8/&71'
+  - ' &6&l| %enchant-Speed% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-Haste% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-EXPFinder% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-KeyFinder% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-CropsBooster% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-XPBooster% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-MoneyPouch% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-EssencePouch% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-SpawnerFinder% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-MoneyBooster% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-EssenceBooster% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-Merchant% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-AirStrike% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-Rush% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-Trench% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-EnchantProcBooster% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-JackHammer% &f{current-level}&8/&7{max-level}'
+  - ' &6&l| %enchant-AutoFarmer% &f{current-level}&8/&7{max-level}'
+  - ''
+  - '&b&lCRYSTALS &8(&7{amount-crystals}/12&8)'
+  - ' &b&l| %crystal-AutoSell% &f{boost}%'
+  - ' &b&l| %crystal-Speed% &f{boost}%'
+  - ' &b&l| %crystal-Haste% &f{boost}%'
+  - ' &b&l| %crystal-EXPFinder% &f{boost}%'
+  - ' &b&l| %crystal-KeyFinder% &f{boost}%'
+  - ' &b&l| %crystal-CropsBooster% &f{boost}%'
+  - ' &b&l| %crystal-XPBooster% &f{boost}%'
+  - ' &b&l| %crystal-MoneyPouch% &f{boost}%'
+  - ' &b&l| %crystal-EssencePouch% &f{boost}%'
+  - ' &b&l| %crystal-SpawnerFinder% &f{boost}%'
+  - ' &b&l| %crystal-MoneyBooster% &f{boost}%'
+  - ' &b&l| %crystal-EssenceBooster% &f{boost}%'
+  - ' &b&l| %crystal-Merchant% &f{boost}%'
+  - ' &b&l| %crystal-AirStrike% &f{boost}%'
+  - ' &b&l| %crystal-Rush% &f{boost}%'
+  - ' &b&l| %crystal-Trench% &f{boost}%'
+  - ' &b&l| %crystal-EnchantProcBooster% &f{boost}%'
+  - ' &b&l| %crystal-JackHammer% &f{boost}%'
+  - ' &b&l| %crystal-AutoFarmer% &f{boost}%'
+  - ''
+  - '&d&lABILITIES &8(&7{amount-abilities}/8&8)'
+  - '  &d✨ &fEquipped: %no-abilities%-&c¡Select One!'
+  - '  &d✨ &fEquipped: %ability_current%'
+  - ''
+  changed-mode: '&e&l[!] &eChanged Harvester Hoe mode to &f{mode}.'
+  opened-gui: '&e&l[!] &eOpened &fHarvester Hoe &eUpgrade GUI.'
+  no-hoe: '&e&l[!] &eYou are not holding a harvester hoe.'
+  opened-gui-message: true
+  glow: true
+  format-decimal-progress: true
+  progress-bar:
+    amount: 20
+    symbol: ▎
+    completed-color: '&a'
+    not-completed-color: '&7'
+  # Used for Hoe Levels, each crop broken = amount down below added to progress
+  xp-per-crop: 1.0
+command:
+  essence:
+    default:
+    - '&f&l[!] &e&lEssence Commands '
+    - ' &8● &f/essence &7balance <player>'
+    - ' &8● &f/essence &7pay <player> <amount>'
+    - ' &8● &f/essence &7withdraw <player> <amount>'
+    - ' &8● &f/essence &7shop'
+    admin:
+    - '&f&l[!] &e&lEssence Admin Commands '
+    - ' &8● &f/essence &7give <player> <amount>'
+    - ' &8● &f/essence &7reset <player>'
+    - ' &8● &f/essence &7set <player> <amount>'
+    - ' &8● &f/essence &7remove <player> <amount>'
+    - ' &8● &f/essence &7reload'
+    - ' &8● &f/essence &7force'
+  crops:
+    default:
+    - '&3&l[!] &b&lCrops Commands'
+    - ' &8● &f/crops top &7<crop>'
+    - ' &8● &f/crops balance &7<player> <crop>'
+    admin:
+    - '&3&l[!] &b&lCrops Admin Commands'
+    - ' &8● &f/crops set &7<player> <crop> <amount>'
+    - ' &8● &f/crops give &7<player> <crop> <amount>'
+    - ' &8● &f/crops reset &7<player> <crop> <amount>'
+    - ' &8● &f/crops remove &7<player> <crop> <amount>'
+    - ' &8● &f/crops force &7'
+  hoe:
+    default:
+    - '&f&l[!] &b&lHoe Commands '
+    - ' &8● &f/hoe &7about'
+    - ' &8● &f/hoe &7info'
+    - ' &8● &f/hoe &7stats'
+    admin:
+    - '&f&l[!] &b&lHoe Admin Commands '
+    - ' &8● &f/hoe &7give <player> <enchant:level>,<enchant:level>,<level:level>,<autosell:1>'
+    - ' &8● &f/hoe &7testchance <enchant> <levels> <blocks>'
+    - ' &8● &f/hoe &7giveenchant <player> <enchant> <level>'
+    - ' &8● &f/hoe &7givelevel <player> <level>'
+    - ' &8● &f/hoe &7setlevel <level>'
+    - ' &8● &f/hoe &7setenchant <enchant:level>, <enchant:level>'
+    - ' &8● &f/hoe &7calc <enchant> <levels>'
+    - ' &8● &f/hoe &7admin'
+    - ' &8● &f/hoe &7reload'
+# Permissions - add rivalhoes.main to give access to commands, rivalhoes.admin permission for admin commands
+permissions:
+  force-captcha: rivalhoes.captcha.force
+  harvesters: rivalhoes.harvesters
+  hoe-testchance: rivalhoes.testchance
+  hoe-stats: rivalhoes.stats
+  hoe-reload: rivalhoes.reload
+  hoe-give: rivalhoes.give
+  hoe-harvesterevent: rivalhoes.harvesterevent
+  hoe-calculate: rivalhoes.calculate
+  hoe-admin: rivalhoes.admin
+  hoe-max: rivalhoes.max
+  hoe-alerts: rivalhoes.alerts
+  hoe-setenchant: rivalhoes.setenchant
+  hoe-giveenchant: rivalhoes.giveenchant
+  hoe-giveability: rivalhoes.giveability
+  hoe-givelevel: rivalhoes.givelevel
+  hoe-givecrystal: rivalhoes.givecrystal
+  hoe-giveblackscroll: rivalhoes.giveblackscroll
+  hoe-setowner: rivalhoes.setowner
+  hoe-prestige: rivalhoes.prestige
+  hoe-setprestige: rivalhoes.setprestige
+  hoe-mode: rivalhoes.mode
+  hoe-toggle: rivalhoes.toggle
+  hoe-history: rivalhoes.history
+  hoe-transfer: rivalhoes.transfer
+  crops-force: rivalhoes.crops.force
+  crops-give: rivalhoes.crops.give
+  crops-remove: rivalhoes.crops.removed
+  crops-reset: rivalhoes.crops.reset
+  crops-set: rivalhoes.crops.set
+  crops-balance: rivalhoes.crops.balance
+  crops-top: rivalhoes.crops.top
+  essence-give: rivalhoes.essence.give
+  essence-remove: rivalhoes.essence.remove
+  essence-reset: rivalhoes.essence.reset
+  essence-set: rivalhoes.essence.set
+  essence-pay: rivalhoes.essence.pay
+  essence-balance: rivalhoes.essence.balance
+  essence-shop: rivalhoes.essence.shop
+  essence-withdraw: rivalhoes.essence.withdraw
+  harvester-event: rivalhoes.harvesterevent
+  no-permission: '&4&l[!] &cYou do not have permission.'
+Shop:
+  open-essence-shop: '&e&l[!] &eOpening the essence shop...'
+  not-enough: '&4&l[!] &cYou don''t have enough essence for this item.'
+  successful-purchase: '&e&l[!] &eYou have successfully bought {item} for &f{price}
+    &eessence.'
+Crops:
+  set-admin: '&4&l[!] &cYou set &f{player}''s&c {crop} amount to &f{value}&c.'
+  set-player: '&4&l[!] &cYour &f{crop} &camount has been set to &f{value}&c.'
+  remove-admin: '&4&l[!] &cYou removed &f{value}&c {crop} from &f{player}''s &cbalance.'
+  remove-player: '&4&l[!] &f{value} &c{crop} have been taken from your account.'
+  give-admin: '&4&l[!] &cYou have given &f{player} {value} &c{crop}.'
+  give-player: '&4&l[!] &cYou have been given &f{value}&c {crop}.'
+  reset-admin: '&4&l[!] &cYou have reset &f{player}''s&c {crop} amount.'
+  reset-player: '&4&l[!] &cYour &f{crop} &camount has been reset.'
+#Permission Boosters
+Permission-Boosters:
+  #Example money.multi.rank.50 - number at end is divided by 100 to get the final boost "rank" can be replaced with anything
+  money:
+    enabled: true
+    prefix: money
+  #Example essence.multi.rank.50 - number at end is divided by 100 to get the final boost "rank" can be replaced with anything
+  essence:
+    enabled: true
+    prefix: essence
+  #Example proc.multi.rank.50 - number at end is divided by 100 to get the final boost "rank" can be replaced with anything
+  proc:
+    enabled: false
+    prefix: proc
+    #Example hoexp.multi.rank.50 - number at end is divided by 100 to get the final boost "rank" can be replaced with anything
+  leveling-xp:
+    enabled: false
+    prefix: hoexp
+  #Example exp.multi.rank.50 - number at end is divided by 100 to get the final boost "rank" can be replaced with anything
+  experience:
+    enabled: false
+    prefix: exp
+# Harvester Event
+HarvesterEvent:
+  config:
+    minimum-players: 0
+    count-enchants: false
+    started-event: '&e☄ &lHarvest Event &e| &7You &aStarted &7a Harvest Event.'
+    already-started: '&e☄ &lHarvest Event &e| &7The Harvest Event has already started!'
+    not-started: '&e☄ &lHarvest Event &e| &7The Harvest Event has not started yet!
+      &fStarting in: &e{next-time}'
+    bar:
+      enabled: true
+      title: '&e☄ &lHarvest Event: &f{time} remaining'
+      color: YELLOW
+    reminder:
+      enabled: true
+      times:
+      - '120'
+      - '60'
+      - '30'
+  scheduler:
+    enabled: false
+    timezone: America/New_York
+    specific-times:
+      Monday:
+      - '12:35'
+      - '12:45'
+      - '23:00'
+      Tuesday:
+      - 08:00
+      Wednesday:
+      - '14:00'
+      Thursday:
+      - '17:30'
+      Friday:
+      - 09:00
+      Saturday:
+      - '11:15'
+      Sunday:
+      - '19:45'
+  auto-start:
+    enabled: true
+    time: 1200
+  lasts-time: 300
+  message-started:
+  - ''
+  - '[center]&e☄ &lHarvest Event'
+  - ''
+  - '[center]&7The Harvest Event has just started!'
+  - '[center]&7Ends in: &f5 mins'
+  - ''
+  - '[center]&7&o(( The top 5 harvesters receive rewards! ))'
+  places: 5
+  message:
+  - ''
+  - '[center]&e☄ &lHarvest Event'
+  - ''
+  - '[center]&7The Harvest Event has ended!'
+  - ''
+  - '[center]&a#1 &e&l{player-0} &8- &f{amount-0}'
+  - '[center]&6#2 &e&l{player-1} &8- &f{amount-1}'
+  - '[center]&c#3 &e&l{player-2} &8- &f{amount-2}'
+  - '[center]&f#4 &e&l{player-3} &8- &f{amount-3}'
+  - '[center]&f#5 &e&l{player-4} &8- &f{amount-4}'
+  - ''
+  - '[center]&7&o(( The top 5 harvesters received their rewards! ))'
+  current:
+  - ''
+  - '[center]&e☄ &lHarvest Event'
+  - ''
+  - '[center]&7Current Leaderboard!'
+  - ''
+  - '[center]&a#1 &e&l{player-0} &8- &f{amount-0}'
+  - '[center]&6#2 &e&l{player-1} &8- &f{amount-1}'
+  - '[center]&c#3 &e&l{player-2} &8- &f{amount-2}'
+  - '[center]&f#4 &e&l{player-3} &8- &f{amount-3}'
+  - '[center]&f#5 &e&l{player-4} &8- &f{amount-4}'
+  - ''
+  - '[center]&e&lYour Crops: &f{current}'
+  - '[center]&e&lTime Left: &f{time-left}'
+  reminder:
+  - ''
+  - '[center]&e☄ &lHarvest Event'
+  - ''
+  - '[center]&7Current Leaderboard!'
+  - ''
+  - '[center]&a#1 &e&l{player-0} &8- &f{amount-0}'
+  - '[center]&6#2 &e&l{player-1} &8- &f{amount-1}'
+  - '[center]&c#3 &e&l{player-2} &8- &f{amount-2}'
+  - '[center]&f#4 &e&l{player-3} &8- &f{amount-3}'
+  - '[center]&f#5 &e&l{player-4} &8- &f{amount-4}'
+  - ''
+  - '[center]&e&lYour Crops: &f{current}'
+  - '[center]&e&lTime Left: &f{time-left}'
+  rewards:
+    '0':
+      commands:
+      - essence give {player} 250000
+      message: '&e☄ &lHARVEST EVENT &8» &eYou finished &lfirst&r &ein the crop event!
+        &f&o(( You received &l250k essences&r &f&o))'
+    '1':
+      commands:
+      - essence give {player} 150000
+      message: '&e☄ &lHARVEST EVENT &8» &eYou finished &lsecond&r &ein the crop event!
+        &f&o(( You received &l150k essences&r &f&o))'
+    '2':
+      commands:
+      - essence give {player} 100000
+      message: '&e☄ &lHARVEST EVENT &8» &eYou finished &lthird&r &ein the crop event!
+        &f&o(( You received &l100k essences&r &f&o))'
+    '3':
+      commands:
+      - essence give {player} 50000
+      message: '&e☄ &lHARVEST EVENT &8» &eYou finished &lfourth&r &ein the crop event!
+        &f&o(( You received &l50K essences&r &f&o))'
+    '4':
+      commands:
+      - essence give {player} 25000
+      message: '&e☄ &lHARVEST EVENT &8» &eYou finished &lfifth&r &ein the crop event!
+        &f&o(( You received &l25K essences&r &f&o))'
+EnchantBook:
+  use-from-other-tools:
+    enabled: true
+    message: '&x&F&F&5&7&5&7✘ This enchant can''t be applied to this tool.'
+  material: BOOK
+  glow: true
+  name: '{enchant} &8» &f{level} Level(s)'
+  lore:
+  - ' &8| &7Enchant: &e{enchant-raw}'
+  - ' &8| &7Level: &e{level}'
+  - ' &8| &7Can be applied to: &eHarvester Hoe'
+  - ''
+  - '&7&o(( Place this on a harvester hoe to apply the enchant ))'
+  message: '&e&l[!] &7You have added &f{level} &7levels of &f{enchant} &7to your harvester
+    hoe!'
+  max-level: '&x&F&F&5&7&5&7✘ &7The {enchant} Enchant &7is already at max level!'
+LevelCrystal:
+  use-from-other-tools:
+    enabled: false
+  material: EMERALD
+  glow: true
+  name: '&2&l[!] &a&lLevel Upgrade'
+  lore:
+  - ''
+  - ' &e| &7Levels: &f{level}'
+  - ' &e| &7Can be applied to: &fHarvester Hoe'
+  - ''
+  - '&7&o(( Place this on a harvester hoe to level it up))'
+  message: '&2&l[!] &aYou have added &f{level} &alevels to your harvester hoe!'
+  max-level: '&x&F&F&5&7&5&7✘ Your &fhoe &x&F&F&5&7&5&7is already at &f&nmax&r &x&F&F&5&7&5&7✘level!'
+Economy:
+  # Possible economies, RivalHarvesterHoes, Vault, PlaceholderAPI or register a custom one through the API
+  economy-type: RivalHarvesterHoes
+  economy-command: essence
+  economy-command-aliases:
+  - essence
+  economy-name: Essence
+PlaceholderAPI-Economy:
+  # Use a placeholder without formatting or otherwise it won't work.
+  balance-placeholder: '%tokens_balance%'
+  give-command: tokens give %player% %amount%
+  take-command: tokens remove %player% %amount%
+  # If false, whole numbers will be used in the %amount%, if true decimal amount will be used
+  decimal-support: true
+Essence:
+  item-material: MAGMA_CREAM
+  item-name: '&e{amount} &8» &6&lEssence'
+  item-lore:
+  - ''
+  - '&7&o(( Click to redeem &f{amount}  &7&oessence ))'
+  - ''
+  decimal-format: '#,###'
+  withdraw-delay: '&4&lWait &f{time} &cbefore withdrawing again.'
+  withdraw-minimum: '&4&l[!] &cYou need to have at least &f{amount} &cbefore you can
+    withdraw'
+  pay-minimum: '&4&l[!] &cYou need to have at least &f{amount} &cbefore you can pay'
+  pay-delay: '&4&lWait &f{time} &cbefore paying again.'
+  no-hoe: '&4&l[!] &cYou must be holding a Harvester Hoe'
+  bottom-block: '&4&l[!] &cYou can not break bottom block of sugarcane with your hoe.'
+  bottom-block-bamboo: '&4&l[!] &cYou can not break bottom block of bamboo with your
+    hoe.'
+  per-player-hoe: '&4&l[!] &fYou can''t use that &cHarvester Hoe &fas you are not
+    the &cOwner &fof the &cHarvester Hoe&f.'
+  full-inventory: '&4&l[!] &fYour inventory is full!'
+  received-hoe: '&e&l[!] &fYou have received a &eHarvester Hoe&f.'
+  given-hoe: '&e&l[!] &fYou have given &e{player} &fa &eHarvester Hoe&f.'
+  invalid-player: '&4&l[!] &cYou have entered an invalid player name!'
+  invalid-page: '&4&l[!] &cThere is no page by that name'
+  invalid-number: '&4&l[!] &cYou didn''t enter a valid number.'
+  inventory-full: '&4&l[!] &cYour inventory is full.'
+  only-players: '&4&l[!] &cOnly players may do this.'
+  incorrect-usage: '&4&l[!] &cIncorrect Usage: &e{command}'
+  under-zero: '&4&l[!] &cYou may not use numbers under 1!'
+  no-essence: '&4&l[!] &cYou do not have that much essence, you have &f{essence}'
+  yourself: '&4&l[!] &cYou cannot send essence to yourself.'
+  redeemed: '&e&l[!] &fYou have redeemed &e{value}&f essence.'
+  withdrawn: '&e&l[!] &fYou have withdrawn &e{value}&f essence.'
+  set-admin: '&e&l[!] &fYou set &e{player}''s&f essence amount to &e{value}&f.'
+  set-player: '&e&l[!] &fYour &fessence &eamount has been set to &e{value}&f.'
+  remove-admin: '&e&l[!] &fYou removed &e{value}&f essence from &e{player}''s&f balance.'
+  remove-player: '&e&l[!] &e{value} &fessence have been taken from your account.'
+  give-admin: '&e&l[!] &fYou have given &e{player} {value} &fessence.'
+  give-player: '&e&l[!] &fYou have been given &e{value}&f essence.'
+  paid-player: '&e&l[!] &fYou have received &e{value}&f essence from &e{player}'
+  player-that-paid: '&e&l[!] &fYou have paid &e{player} {value} &fessence.'
+  reset-admin: '&e&l[!] &fYou have reset &e{player}''s&f essence amount.'
+  reset-player: '&e&l[!] &fYour &fessence &famount has been reset.'
+  toggle-gui-on: '&2&l[!] &7You have &aallowed &7the Hoe GUI to open!'
+  toggle-gui-off: '&4&l[!] &7You have &cdisabled &7the Hoe GUI from opening!'
+  toggle-alerts-on: '&2&l[!] &aTurned on staff alerts.'
+  toggle-alerts-off: '&4&l[!] &cTurned off staff alerts.'
+  toggle-payments-on: '&2&l[!] &7You have turned &a&lON &7accepting essence payments.'
+  toggle-payments-off: '&4&l[!] &7You have turned &c&lOFF &7accepting essence payments.'
+  payments-off: '&4&l[!] &f{player} &chas essence payments disabled.'
+  hoe-transfer-not-owner: '&4&l[!] &cYou are not the owner of this hoe!'
+  hoe-transfer-same-player: '&4&l[!] &cYou cant transfer ownership to the same player!'
+  hoe-transfer: '&4&l[!] &cYou transferred Hoe Ownership &cto &f{playernew}&c!'
+  player-balance-format:
+  - '&e&lYour Essences &8» &f{amount}'
+  - '&7Spend Essence by upgrading your hoe or in /essence shop'
+  others-balance-format:
+  - '&e&l{player}''s Essences &8» &f{amount}'
+  - '&7Spend Essence by upgrading your hoe or in /essence shop'
+DefaultSettings:
+  AutoSellChat: true
+  ActionBar: true
+  Titles: true
+World-Blacklist:
+  worlds: []
+  message: '&x&F&F&5&7&5&7✘ You can''t use your harvester hoe here.'
+Features:
+  inventory-full-command:
+    enabled: false
+    command: sell all
+    permission: sell.all.permission
+  drophoe-title:
+    enabled: true
+    title: '&4&l[!] &c&lDROP'
+    subtitle: '&7Press &cQ &7again to drop your hoe!'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  drophoe-actionbar:
+    enabled: true
+    value: '&4&l[!] &c&lDROP &7Press &cQ &7again to drop your hoe!'
+    time: 80
+  drophoe-messages:
+    drop-hoe-enabled: true
+    block-completely: false
+    only-player-inventory: false
+    block-movement: false
+    message: '&4&l[!] &7Press &cQ &7in the next &c10 seconds &7to drop your hoe!'
+    time: 10
+  levelup-title:
+    enabled: true
+    title: '&2&l[!] &a&lLEVEL UP'
+    subtitle: '&7Leveled up your Hoe to level &f{level}&7!'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  levelup-actionbar:
+    enabled: true
+    value: '&2&l[!] &aYou have leveled up your Hoe to level &f{level}&a!'
+    time: 80
+  modechanged-title:
+    enabled: true
+    title: '&6☆ &e&lMODE'
+    title-noautosell: '&4&l[!] &c&lAUTOSELL'
+    subtitle-noautosell: '&7You don''t have AutoSell on your Hoe'
+    subtitle: '&7Changed mode to &8» &f{mode}'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  modechanged-actionbar:
+    enabled: true
+    value: '&6☆ &e&lMODE &8» &7Changed mode to &f{mode}'
+    value-noautosell: '&4&l[!] &c&lAUTOSELL &8» &7You don''t have AutoSell unlocked!'
+    time: 80
+  merchant-title:
+    enabled: true
+    title: '&x&f&c&8&1&5&0&lMerchant &8(&7🥃&8)'
+    subtitle: '&7&o(( Activated. ))'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  merchant-actionbar:
+    enabled: true
+    value: '&x&f&c&8&1&5&0Merchant &8(&7🥃&8)&lMERCHANT &7has been activated'
+    time: 80
+  essencedeposit-title:
+    enabled: true
+    title: '&6&l[!] &e&lESSENCE'
+    subtitle: '&a&l+ &6❋&e{essence}'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  essencedeposit-actionbar:
+    enabled: true
+    value: '&6&l[!] &e&lESSENCE &e&l+ &6❋&e{essence}'
+    time: 80
+  essencewithdraw-title:
+    enabled: true
+    title: '&6&l[!] &e&lESSENCE'
+    subtitle: '&c&l- &6❋&e{essence}'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  essencewithdraw-actionbar:
+    enabled: true
+    value: '&6&l[!] &e&lESSENCE &c&l- &6❋&e{essence}'
+    time: 80
+  essencenone-title:
+    enabled: true
+    title: '&4&l[!] &c&lESSENCE'
+    subtitle: '&7&o(( You dont''t have enough essence. ))'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  essencenone-actionbar:
+    enabled: true
+    value: '&4&l[!] &7You dont have enough Essence, You have: &6❋&e{essence}'
+    time: 80
+  fullinventory-title:
+    enabled: true
+    title: '&4&l[!] &c&lINVENTORY'
+    subtitle: '&7&o(( Your inventory is full! ))'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  fullinventory-actionbar:
+    enabled: true
+    value: '&4&l[!] &7Your inventory is full!'
+    time: 80
+  airstrike-title-activated:
+    enabled: true
+    title: '&x&f&c&a&c&5&0&lAir Strike &8(&7🔥&8)'
+    subtitle: '&7&o(( AirStrike inbound! ))'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  airstrike-actionbar-activated:
+    enabled: true
+    value: '&x&f&c&a&c&5&0&lAir Strike &8(&7🔥&8) &7inbound!'
+    time: 80
+  airstrike-title-ended:
+    enabled: true
+    title: '&x&f&c&a&c&5&0&lAir Strike &8(&7🔥&8)'
+    subtitle: '&a&l+ &2$&a{money}  &e&l+ &6❋&e{essence}'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  airstrike-actionbar-ended:
+    enabled: true
+    value: '&x&f&c&a&c&5&0&lAir Strike &8(&7🔥&8) &a&l+ &2$&a{money}  &e&l+ &6❋&e{essence}'
+    time: 80
+  spawnerfinder-title:
+    enabled: true
+    title: '&x&f&c&a&c&5&0&lSpawner Finder &8(&7🔥&8)'
+    subtitle: '{reward}'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  spawnerfinder-actionbar:
+    enabled: true
+    value: '&x&f&c&a&c&5&0&lSpawner Finder &8(&7🔥&8): {reward}'
+    time: 80
+  keyfinder-title:
+    enabled: true
+    title: '&x&A&D&F&3&F&D&lKey Finder &8(&7⚓&8)'
+    subtitle: '{reward}'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  keyfinder-actionbar:
+    enabled: true
+    value: '&x&A&D&F&3&F&D&lKey Finder &8(&7⚓&8): {reward}'
+    time: 80
+  rush-title-activated:
+    enabled: true
+    title: '&x&f&c&6&6&4&f&lRush &8(&7🚀&8)'
+    subtitle: '&7&oRush mode activated!'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  rush-actionbar-activated:
+    enabled: true
+    value: '&x&f&c&6&6&4&f&lRush &8(&7🚀&8) &7has been activated!'
+    time: 80
+  rush-actionbar-activated-stay:
+    enabled: true
+    value: '&x&f&c&6&6&4&f&lRush &8(&7🚀&8): &7Time left: &f{time}'
+  jackhammer-title:
+    enabled: true
+    title: '&x&f&c&8&e&0&0&lJackHammer &8(&7💥&8)'
+    subtitle: '&7Your jackhammer enchant has been activated!'
+    fadeIn: 20
+    fadeOut: 20
+    time: 80
+  jackhammer-actionbar:
+    enabled: true
+    value: '&x&f&c&8&e&0&0&lJackHammer &8(&7💥&8): &7Your jackhammer enchant has been
+      activated!'
+    time: 80
+time-placeholders:
+  day: day
+  days: days
+  hour: hour
+  hours: hours
+  minute: minute
+  minutes: minutes
+  second: second
+  seconds: seconds
+time-placeholders-short:
+  day: d
+  hour: h
+  minute: m
+  second: s
+withdraw-settings:
+  minimum-amount: 0
+  delay: 3
+pay-settings:
+  minimum-amount: 0
+  delay: 3
+event-settings:
+  rival-item-receive-event: false
+  rival-block-break-event:
+    count-enchants-amount: false

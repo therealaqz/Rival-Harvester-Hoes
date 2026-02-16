@@ -1,0 +1,135 @@
+new-upgrade-menu: true #If true will use this upgrade menu, else it will use the default one
+Menu-Settings:
+  name: '&e&nMenu&r &8» &fHoe Upgrades'
+  size: 27
+  hoe-preview:
+    enabled: true
+    slot: 4
+Toggle-Items:
+  enabled: true
+  slot: 26
+  No-Enchant:
+    material: BARRIER
+    name: '&c&lCannot disable'
+    lore:
+      - '&7You don''t own this enchant'
+  Enabled-Item:
+    material: LIME_DYE
+    name: '&a&lEnchant Toggle'
+    lore:
+      - '&7Whether or not should this enchant'
+      - '&7be enabled while grinding'
+      - ''
+      - '&a&lENABLED'
+      - '&2Click to disable'
+  Disabled-Item:
+    material: RED_DYE
+    name: '&c&lEnchant Toggle'
+    lore:
+      - '&7Whether or not should this enchant'
+      - '&7be enabled while grinding'
+      - ''
+      - '&c&lDISABLED'
+      - '&4Click to enable'
+Toggle-Messages:
+  enabled: false
+  slot: 25
+  Enabled-Item:
+    material: LIME_DYE
+    name: '&a&lEnchant Messages'
+    lore:
+      - '&7Whether or not should this enchant'
+      - '&7should send messages while grinding'
+      - ''
+      - '&a&lENABLED'
+      - '&2Click to disable'
+  Disabled-Item:
+    material: RED_DYE
+    name: '&c&lEnchant Messages'
+    lore:
+      - '&7Whether or not should this enchant'
+      - '&7should send messages while grinding'
+      - ''
+      - '&c&lDISABLED'
+      - '&4Click to enable'
+Back-Item:
+  enabled: true
+  slot: 18
+  material: BARRIER
+  base64:
+    enabled: true
+    value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWRmNWMyZjg5M2JkM2Y4OWNhNDA3MDNkZWQzZTQyZGQwZmJkYmE2ZjY3NjhjODc4OWFmZGZmMWZhNzhiZjYifX19
+  name: '&x&F&F&1&7&4&1⬅ Go Back'
+  lore:
+  - '&r'
+  - '&7&o(( Click to go back to enchanter))'
+PurchaseEnchantItem:
+  name: '&a&l+ {amount} Enchant Levels'
+  lore:
+    - ' '
+    - ' &2&l* &a&lCurrent Level: &f{current_level}'
+    - ' &2&l* &a&lNew Level: &f{next_level}'
+    - ' &2&l* &a&lPrice: &f{cost}'
+    - ' '
+    - ' &7&o(( Tip: Click to purchase enchant! ))'
+PurchaseEnchantMaxItem:
+  enabled: true
+  slot: 22
+  material: IRON_BARS
+  name: '&a&l+ {amount} Enchant Levels'
+  lore:
+    - ' '
+    - ' &2&l* &a&lCurrent Level: &f{current_level}'
+    - ' &2&l* &a&lNew Level: &f{next_level}'
+    - ' &2&l* &a&lPrice: &f{cost}'
+    - ' '
+    - ' &7&o(( Tip: Click to purchase max enchant levels! ))'
+Menu-Items:
+  '1':
+    slot: 9
+    amount : 1
+    levels: 1
+  '2':
+    slot: 10
+    amount: 2
+    levels: 5
+  '3':
+    slot: 11
+    amount: 3
+    levels: 10
+  '4':
+    slot: 12
+    amount: 4
+    levels: 25
+  '5':
+    slot: 13
+    amount: 5
+    levels: 50
+  '6':
+    slot: 14
+    amount: 6
+    levels: 100
+  '7':
+    slot: 15
+    amount: 7
+    levels: 250
+  '8':
+    slot: 16
+    amount: 8
+    levels: 500
+  '9':
+    slot: 17
+    amount: 9
+    levels: 1000
+Enchants:
+  KeyFinder:
+    name: '&a&l+ {amount} Enchant Levels'
+    lore:
+      - '&8Custom Enchant'
+      - '&7&oChance to find crate keys.'
+      - ' '
+      - ' &2&l* &a&lCurrent Level: &f{current_level}'
+      - ' &2&l* &a&lNew Level: &f{next_level}'
+      - ' &2&l* &a&lPrice: &f{cost}'
+      - ' '
+      - ' &7&o(( Tip: Click to purchase enchant! ))'

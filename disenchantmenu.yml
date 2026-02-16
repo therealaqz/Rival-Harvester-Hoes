@@ -1,0 +1,45 @@
+disenchanter-confirm-menu: true
+Menu-Settings:
+  name: '&8Are you sure?'
+  size: 27
+  hoe-preview:
+    enabled: true
+    slot: 4
+Confirm:
+  slot: 12
+  material: LIME_STAINED_GLASS_PANE
+  name: '&2&l<!> &a&lConfirm Disenchant'
+  lore:
+    - ' &2&l* &a&lAmount of levels: &f{amount}'
+    - ' &2&l* &a&lValue: &f{value}'
+    - ''
+    - ' &7&o(( Click to disenchant {amount} levels! ))'
+Cancel:
+  slot: 14
+  material: RED_STAINED_GLASS_PANE
+  name: '&4&l<!> &c&lCancel Disenchant'
+  lore:
+    - ''
+    - ' &7&o(( Click to go back! ))'
+Enchant-Display:
+  slot: 13
+  enabled: true
+  amount: 1
+  name: '&c&l- {amount} Enchant Levels'
+  lore:
+    - ''
+    - ' &4&l* &cDisenchant Level: &f{amount}'
+    - ' &4&l* &cCurrent level: &f{current_level}'
+    - ' &4&l* &cValue: &f{value}'
+    - ''
+Enchants:
+  KeyFinder:
+    name: '&c&l- {amount} KeyFinder Enchant Levels'
+    lore:
+      - '&8Custom Enchant'
+      - '&7&oChance to find crate keys.'
+      - ' '
+      - ' &4&l* &cDisenchant Level: &f{amount}'
+      - ' &4&l* &cCurrent Level: &f{current_level}'
+      - ' &4&l* &cValue: &f{value}'
+      - ' '

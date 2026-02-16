@@ -1,0 +1,129 @@
+Prestige:
+  main-menu-item:
+    enabled: true
+    material: SIGN
+    base64:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGRjZmYxYWNjMTJmMTZkNDRhZWUxZjdlODQ0MTRjYjJlOGVhN2ViNDY0MmU3ZDI5MmQ3NmYxYzE3YjRiNDM0YSJ9fX0=
+    slot: 21
+    name: '&a&l[!] Hoe Prestige'
+    lore:
+    - '&7'
+    - '&7(( Click to view all hoe prestige perks ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  enchant-menu-item:
+    enabled: true
+    material: SIGN
+    base64:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGRjZmYxYWNjMTJmMTZkNDRhZWUxZjdlODQ0MTRjYjJlOGVhN2ViNDY0MmU3ZDI5MmQ3NmYxYzE3YjRiNDM0YSJ9fX0=
+    slot: 49
+    name: '&a&l[!] Hoe Prestige'
+    lore:
+    - '&7'
+    - '&7(( Click to view all hoe prestige perks ))'
+    - '&7'
+    - '&6◆ &e¡Click to open!'
+  prestige-info-menu-item:
+    slot: 12
+    material: SIGN
+    base64:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2RjOTg1YTdhNjhjNTc0ZjY4M2MwYjg1OTUyMWZlYjNmYzNkMmZmYTA1ZmEwOWRiMGJhZTQ0YjhhYzI5YjM4NSJ9fX0=
+    name: '&e&lPrestige Information'
+    lore:
+    - ''
+    - '&e&lCURRENT PERKS'
+    - ''
+    - ' &e&l| &fEssence Boost: &ex{essence-boost}'
+    - ' &e&l| &fMoney Boost: &ex{money-boost}'
+    - ' &e&l| &fEnchant Proc Boost: &ex{enchant-proc-boost}'
+    - ' &e&l| &fCrop Boost Boost: &ex{crop-boost}'
+    - ''
+  prestige-button-no-requirement:
+    slot: 14
+    material: SIGN
+    base64:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWQ3OGNjMzkxYWZmYjgwYjJiMzVlYjczNjRmZjc2MmQzODQyNGMwN2U3MjRiOTkzOTZkZWU5MjFmYmJjOWNmIn19fQ==
+    name: '&c&lPrestige unavailable'
+    lore:
+    - ''
+    - ' &c&l| &fPrestige Requirement: &cLevel {requirement-level} Hoe'
+    - ''
+  prestige-button-available:
+    material: SIGN
+    base64:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzExMDFjNDk4YWFhYzkzZTc2YjhmMTZkMjljYmZhNDczZWQyNGQ5YzZjNzU1NjNjMjdlZWRkNDljOTYzZTk4YiJ9fX0=
+    name: '&a&lPrestige Available'
+    lore:
+    - ''
+    - '&e&lNEXT PRESTIGE PERKS'
+    - ''
+    - ' &e&l| &fEssence Boost: &ex{essence-boost}'
+    - ' &e&l| &fMoney Boost: &ex{money-boost}'
+    - ' &e&l| &fEnchant Proc Boost: &ex{enchant-proc-boost}'
+    - ' &e&l| &fCrop Boost Boost: &ex{crop-boost}'
+    - ''
+    - '&7&o(( Click to prestige your hoe! ))'
+Prestige-Menu:
+  size: 27
+  name: '&e&nServerName&r &8» &fHoe Prestige'
+Required-Levels-By-Prestige:
+  enabled: true
+  requirements:
+    '1':
+      level: 5
+    '2':
+      level: 10
+    '3':
+      level: 15
+    '4':
+      level: 20
+    '5':
+      level: 25
+    '6':
+      level: 30
+    '7':
+      level: 35
+    '8':
+      level: 40
+    '9':
+      level: 45
+    '10':
+      level: 50
+Prestige-Settings:
+  money-boost-per-prestige: 0.2
+  essence-boost-per-prestige: 0.2
+  crop-boost-per-prestige: 0.15
+  enchant-proc-boost-per-prestige: 0.05
+  max-prestige: 100
+  xp-requirement-boost-per-prestige: 0.2
+  reset-all-enchants-on-prestige: true
+  reset-all-crystals-on-prestige: false
+  reset-all-abilities-on-prestige: false
+  reset-autosell: false
+  auto-prestige: false
+  # Ability to execute commands, messages every prestige
+  prestige-actions: []
+Messages:
+  max-prestige: '&e&l[!] &fYou are at the &cmax &fprestige level!'
+  need-level: '&e&l[!] &fYour hoe needs to be level &e&n{required-level}&r &7to prestige!'
+  hoe-prestiged:
+  - '&r'
+  - '&e&l[!] &fYou have &e&nprestiged&r &fyour hoe to &e&l&n{prestige-level}&r &f!'
+  - '&r'
+  - '&e&lPRESTIGE &f{old-level} ✧ &8&l➜ &e&lPRESTIGE &f{new-level} ✧'
+  - '&r'
+  - '&e&lPERKS:'
+  - ' &e&l| &fEssence Boost: &ex{essence-boost}'
+  - ' &e&l| &fMoney Boost: &ex{money-boost}'
+  - ' &e&l| &fEnchant Proc Boost: &ex{enchant-proc-boost}'
+  - ' &e&l| &fCrop Boost Boost: &ex{crop-boost}'
+  - '&r'
+  - '&7&o(( Reach Hoe Level &f&n{level}&r &7&oto prestige your hoe again! ))'
+Prestige-Rewards:
+  '101':
+    rewards:
+    - '[command]essence give {player} 5000'
+Repeating-Rewards:
+  '101':
+    rewards:
+    - '[command]essence give {player} 10000'
